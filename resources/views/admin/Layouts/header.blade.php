@@ -128,7 +128,13 @@
 		</li>
 
 
-
+		<li>
+			<a href="{{ route('admin.sub_categories.index') }}">
+				<div class="parent-icon"><i class='bx bx-home-circle'></i>
+				</div>
+				<div class="menu-title">Sub Categories</div>
+			</a>
+		</li>
 
 
 

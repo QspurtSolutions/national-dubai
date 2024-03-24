@@ -6,16 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class Categories extends Model
+class SubCategory extends Model
 {
+    
     use HasFactory;
-    use HasFactory;
-    protected $fillable = ['heading','image'];
+    
+    protected $fillable = ['title', 'category_id', 'description', 'image'];
 
-    public function subcategories()
+
+    public function category()
     {
-        return $this->hasMany(SubCategory::class);
-    } 
+        return $this->belongsTo(Categories::class);
+    }
+
     public function getImageAttribute($value)
     {
         return $value ? asset(Storage::url($value)) : null;
