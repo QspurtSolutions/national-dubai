@@ -29,8 +29,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\CategoriesController;
-
-
+use App\Http\Controllers\Admin\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -216,7 +215,15 @@ Route::prefix('categories')->group(function () {
 });
 
 
-
+Route::prefix('sub_categories')->group(function () {
+    Route::get('/', [SubCategoryController::class, 'index'])->name('sub_categories.index');
+    Route::get('/list', [SubCategoryController::class, 'table'])->name('sub_categories.list');
+    Route::get('/create', [SubCategoryController::class, 'create'])->name('sub_categories.create');
+    Route::post('/create', [SubCategoryController::class, 'store'])->name('sub_categories.store');
+    Route::get('/{id}/edit', [SubCategoryController::class, 'edit'])->name('sub_categories.edit');
+    Route::patch('/{id}/edit', [SubCategoryController::class, 'update'])->name('sub_categories.update');
+    Route::delete('/{id}/delete', [SubCategoryController::class, 'destroy'])->name('sub_categories.destroy');
+});
 
        
 
