@@ -22,8 +22,8 @@ use App\Http\Controllers\frGalleryController;
 
 
 use App\Http\Controllers\FrHomeController;
-
-
+use App\Http\Controllers\FrAboutController;
+use App\Http\Controllers\FrpopularproductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,22 +39,10 @@ use App\Http\Controllers\FrHomeController;
 
 Route::get('/', [FrHomeController::class, 'index']);
 Route::get('/index', [FrHomeController::class, 'index']);
+Route::get('/about', [FrAboutController::class, 'about']);
+Route::get('/products', [FrpopularproductsController::class, 'products']);
 
 
-
-
-
-// Route::get('index', function () {
-//     return view('index');
-// });
-
-
-
-
-
-Route::get('about', function () {
-    return view('about');
-});
 
 
 Route::get('products', function () {

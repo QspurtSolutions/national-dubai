@@ -180,7 +180,6 @@ management.</p>
                             <div class="owl-carousel owl-theme">
 
                             @foreach ($testimonial as $testidata)
-
                                 <div class="item">
                                     <span class="quote"><img src="{{url('national/img/quot.png')}}  " alt=""></span>
                                     <p>{{$testidata ->content }}</p>
@@ -193,7 +192,6 @@ management.</p>
                                         </div>
                                     </div>
                                 </div>
-
                             @endforeach
 
 
@@ -221,71 +219,54 @@ management.</p>
             </div>
 
 
+  
+
+            @foreach ($PopularProducts as $index => $populardata)
+    @if($loop->first)
+        <div class="row">
+            <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
+                <div class="img left">
+                    <a href="restaurant.html"><img src="{{ $populardata->image }}" alt=""></a>
+                </div>
+            </div>
+            <div class="col-md-6 p-0 bg-darkblack valign animate-box" data-animate-effect="fadeInRight">
+                <div class="content">
+                    <div class="cont text-left">
+                        <div class="info">
+                            <h6>Discover</h6>
+                        </div>
+                        <h4>{{ $populardata->title }}</h4>
+                        <p>{{ $populardata->description }}</p>
+                        <div class="butn-dark"> <a href="bath-tab.html"><span>View More</span></a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @else
+        <div class="row">
+            <div class="col-md-6 bg-darkblack p-0 order2 valign animate-box" data-animate-effect="fadeInLeft">
+                <div class="content">
+                    <div class="cont text-left">
+                        <div class="info">
+                            <h6>Experiences</h6>
+                        </div>
+                        <h4>{{ $populardata->title }}</h4>
+                        <p>{{ $populardata->description }}</p>
+                        <div class="butn-dark"> <a href="bath-tab.html"><span>View More</span></a> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInRight">
+                <div class="img left">
+                    <a href="restaurant.html"><img src="{{ $populardata->image }}" alt=""></a>
+                </div>
+            </div>
+        </div>
+    @endif
+@endforeach
 
 
-            <div class="row">
-                <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
-                    <div class="img left">
-                        <a href="restaurant.html"><img src="{{url('national/img/restaurant/1.jpg')}} " alt=""></a>
-                    </div>
-                </div>
-                <div class="col-md-6 p-0 bg-darkblack valign animate-box" data-animate-effect="fadeInRight">
-                    <div class="content">
-                        <div class="cont text-left">
-                            <div class="info">
-                                <h6>Discover</h6>
-                            </div>
-                            <h4>Bath Tub</h4>
-                            <p>Restaurant inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice
-                                misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami
-                                acsestion augue artine.</p>
-                            <div class="butn-dark"> <a href="bath-tab.html"><span>View More</span></a> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 bg-darkblack p-0 order2 valign animate-box" data-animate-effect="fadeInLeft">
-                    <div class="content">
-                        <div class="cont text-left">
-                            <div class="info">
-                                <h6>Experiences</h6>
-                            </div>
-                            <h4>Wash Basin</h4>
-                            <p>Spa center inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice
-                                misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami
-                                acsestion augue artine.</p>
-                            <div class="butn-dark"> <a href="bath-tab.html"><span>View More</span></a> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 p-0 order1 animate-box" data-animate-effect="fadeInRight">
-                    <div class="img">
-                        <a href="bath-tab.html"><img src="{{url('national/img/restaurant/2.jpg')}} " alt=""></a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
-                    <div class="img left">
-                        <a href="bath-tab.html"><img src="{{url('national/img/restaurant/3.jpg')}} " alt=""></a>
-                    </div>
-                </div>
-                <div class="col-md-6 p-0 bg-darkblack valign animate-box" data-animate-effect="fadeInRight">
-                    <div class="content">
-                        <div class="cont text-left">
-                            <div class="info">
-                                <h6>Plumbing</h6>
-                            </div>
-                            <h4>Plumbing</h4>
-                            <p>Restaurant inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice
-                                misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami
-                                acsestion augue artine.</p>
-                            <div class="butn-dark"> <a href="bath-tab.html"><span>View More</span></a> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
            
         </div>
     </section>
@@ -376,81 +357,15 @@ management.</p>
             <div class="row">
                 <div class="col-md-7">
                     <div class="owl-carousel owl-theme">
+
+                    @foreach ($brand as $branddata)
+
                         <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/1.PNG" alt=""></a>
+                            <a href="#0"><img src="{{ asset($branddata->image) }}" alt=""></a>
                         </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/2.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/3.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/4.png" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/5.png" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/6.png" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/7.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/8.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/9.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/10.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/11.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/12.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/13.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/14.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/15.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/16.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/17.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/18.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/19.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/20.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/21.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/22.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/23.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/24.PNG" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="img/brands/26.PNG" alt=""></a>
-                        </div>
+
+                    @endforeach
+    
                        
                     </div>
                 </div>

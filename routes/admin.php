@@ -30,6 +30,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\PopularProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -224,6 +225,22 @@ Route::prefix('sub_categories')->group(function () {
     Route::patch('/{id}/edit', [SubCategoryController::class, 'update'])->name('sub_categories.update');
     Route::delete('/{id}/delete', [SubCategoryController::class, 'destroy'])->name('sub_categories.destroy');
 });
+
+
+
+Route::prefix('popular_products')->group(function () {
+    Route::get('/', [PopularProductsController::class, 'index'])->name('popular_products.index');
+    Route::get('/list', [PopularProductsController::class, 'table'])->name('popular_products.list');
+    Route::get('/create', [PopularProductsController::class, 'create'])->name('popular_products.create');
+    Route::post('/create', [PopularProductsController::class, 'store'])->name('popular_products.store');
+    Route::get('/{id}/edit', [PopularProductsController::class, 'edit'])->name('popular_products.edit');
+    Route::patch('/{id}/edit', [PopularProductsController::class, 'update'])->name('popular_products.update');
+    Route::delete('/{id}/delete', [PopularProductsController::class, 'destroy'])->name('popular_products.destroy');
+});
+
+
+
+
 
        
 

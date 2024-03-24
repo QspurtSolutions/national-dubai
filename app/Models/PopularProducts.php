@@ -5,11 +5,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class SubCategory extends Model
+class PopularProducts extends Model
 {
-    
     use HasFactory;
-    
     protected $fillable = ['title', 'category_id', 'description', 'image'];
 
 

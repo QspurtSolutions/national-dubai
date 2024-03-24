@@ -137,7 +137,16 @@
 		</li>
 
 
+		<li>
+			<a href="{{ route('admin.popular_products.index') }}">
+				<div class="parent-icon"><i class='bx bx-home-circle'></i>
+				</div>
+				<div class="menu-title">Popular Products</div>
+			</a>
+		</li>
 
+
+		
 
 
 

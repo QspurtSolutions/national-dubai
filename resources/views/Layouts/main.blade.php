@@ -28,24 +28,24 @@
 @include('Layouts.header')
 @yield('content')
 @include('Layouts.footer')
-<script src="{{ asset('national/js/jquery-3.6.3.min.js')}}"></script>
-<script src=" {{ asset('national/js/jquery-migrate-3.0.0.min.js')}}"></script>
-<script src="{{ asset('national/js/modernizr-2.6.2.min.js')}}"></script>
-<script src="{{ asset('national/js/imagesloaded.pkgd.min.js')}}"></script>
-<script src="{{ asset('national/js/jquery.isotope.v3.0.2.js')}}"></script>
-<script src="{{ asset('national/js/pace.js')}}"></script>
-<script src="{{ asset('national/js/popper.min.js')}}"></script>
-<script src="{{ asset('national/js/bootstrap.min.js')}}"></script>
-<script src="{{ asset('national/js/scrollIt.min.js')}}"></script>
-<script src="{{ asset('national/js/jquery.waypoints.min.js')}}"></script>
-<script src="{{ asset('national/js/owl.carousel.min.js')}}"></script>
-<script src="{{ asset('national/js/jquery.stellar.min.js')}}"></script>
-<script src="{{ asset('national/ js/jquery.magnific-popup.js')}}"></script>
-<script src="{{ asset('national/js/YouTubePopUp.js')}}"></script>
-<script src="{{ asset('national/js/select2.js')}}"></script>
-<script src="{{ asset('national/js/datepicker.js')}}"></script>
-<script src="{{ asset('national/js/smooth-scroll.min.js')}}"></script>
-<script src="{{ asset('national/js/custom.js')}}"></script>
+<script src="{{asset('national/js/jquery-3.6.3.min.js')}}"></script>
+<script src="{{asset('national/js/jquery-migrate-3.0.0.min.js')}}"></script>
+<script src="{{asset('national/js/modernizr-2.6.2.min.js')}}"></script>
+<script src="{{asset('national/js/imagesloaded.pkgd.min.js')}}"></script>
+<script src="{{asset('national/js/jquery.isotope.v3.0.2.js')}}"></script>
+<script src="{{asset('national/js/pace.js')}}"></script>
+<script src="{{asset('national/js/popper.min.js')}}"></script>
+<script src="{{asset('national/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('national/js/scrollIt.min.js')}}"></script>
+<script src="{{asset('national/js/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('national/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('national/js/jquery.stellar.min.js')}}"></script>
+<script src="{{asset('national/ js/jquery.magnific-popup.js')}}"></script>
+<script src="{{asset('national/js/YouTubePopUp.js')}}"></script>
+<script src="{{asset('national/js/select2.js')}}"></script>
+<script src="{{asset('national/js/datepicker.js')}}"></script>
+<script src="{{asset('national/js/smooth-scroll.min.js')}}"></script>
+<script src="{{asset('national/js/custom.js')}}"></script>
 <script>
 document.getElementById('whats-chat').addEventListener("mouseover", showchatbox);
 document.getElementById('chat-top-right').addEventListener("click", closechatbox);

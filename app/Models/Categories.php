@@ -16,6 +16,14 @@ class Categories extends Model
     {
         return $this->hasMany(SubCategory::class);
     } 
+
+    public function popularproducts()
+    {
+        return $this->hasMany(PopularProducts::class);
+    } 
+
+
+
     public function getImageAttribute($value)
     {
         return $value ? asset(Storage::url($value)) : null;
