@@ -19,7 +19,7 @@
 			</a>
 		</li>
 
-		<li>
+		<!-- <li>
 			<a href="{{ url('admin/management') }}">
 				<div class="parent-icon"><i class='bx bx-home-circle'></i>
 				</div>
@@ -34,7 +34,7 @@
 				</div>
 				<div class="menu-title">Branches</div>
 			</a>
-		</li>
+		</li> -->
 
 
 
@@ -145,6 +145,18 @@
 			</a>
 		</li>
 
+
+		<li>
+			<a href="{{ route('admin.featured_categories.index') }}">
+				<div class="parent-icon"><i class='bx bx-home-circle'></i>
+				</div>
+				<div class="menu-title">Featured Categories</div>
+			</a>
+		</li>
+
+
+
+		
 
 		
 

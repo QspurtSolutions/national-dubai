@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ContactFormController;
+
 use App\Http\Controllers\FrBlogController;
 use App\Http\Controllers\FrcareerController;
 use App\Http\Controllers\FrClientController;
@@ -24,6 +24,9 @@ use App\Http\Controllers\frGalleryController;
 use App\Http\Controllers\FrHomeController;
 use App\Http\Controllers\FrAboutController;
 use App\Http\Controllers\FrpopularproductsController;
+use App\Http\Controllers\ContactFormController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +45,9 @@ Route::get('/index', [FrHomeController::class, 'index']);
 Route::get('/about', [FrAboutController::class, 'about']);
 Route::get('/products', [FrpopularproductsController::class, 'products']);
 
+Route::get('/contact', [ContactFormController::class, 'contact']);
+
+
 
 
 
@@ -59,9 +65,7 @@ Route::get('single-products', function () {
 
 
 
-Route::get('contact', function () {
-    return view('contact');
-});
+
 
 
 

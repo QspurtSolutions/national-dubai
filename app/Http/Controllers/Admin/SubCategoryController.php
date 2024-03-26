@@ -39,7 +39,6 @@ class SubCategoryController extends Controller
       // dd($request->all());
         $data = $request->validate([
             'title' => 'required',
-            'description' => 'nullable',
             'category_id' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
@@ -111,7 +110,6 @@ class SubCategoryController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
-            'description' => 'nullable',
             'category_id' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);

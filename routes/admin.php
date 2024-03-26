@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\PopularProductsController;
+use App\Http\Controllers\Admin\FeaturedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -238,6 +239,18 @@ Route::prefix('popular_products')->group(function () {
     Route::delete('/{id}/delete', [PopularProductsController::class, 'destroy'])->name('popular_products.destroy');
 });
 
+
+
+
+Route::prefix('featured_categories')->group(function () {
+    Route::get('/', [FeaturedController::class, 'index'])->name('featured_categories.index');
+    Route::get('/list', [FeaturedController::class, 'table'])->name('featured_categories.list');
+    Route::get('/create', [FeaturedController::class, 'create'])->name('featured_categories.create');
+    Route::post('/create', [FeaturedController::class, 'store'])->name('featured_categories.store');
+    Route::get('/{id}/edit', [FeaturedController::class, 'edit'])->name('featured_categories.edit');
+    Route::patch('/{id}/edit', [FeaturedController::class, 'update'])->name('featured_categories.update');
+    Route::delete('/{id}/delete', [FeaturedController::class, 'destroy'])->name('featured_categories.destroy');
+});
 
 
 

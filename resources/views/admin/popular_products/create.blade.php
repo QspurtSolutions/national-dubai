@@ -40,6 +40,22 @@
                     @endforeach
                 </select>
             </div>
+
+
+            <div class="col-md-6">
+                <label for="category" class="form-label">Category</label>
+                <select class="form-select" id="category_id" name="category_id">
+
+                    <option value="">Select category</option>
+                    @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ old('subcategory_id', $popular_products->subcategory_id ?? '') == $subcategory->id ? 'selected' : '' }}>{{ $subcategory->heading }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+
+
+
             <!-- Description Field -->
             <div class="col-md-6">
                 <label for="description" class="form-label">Description</label>

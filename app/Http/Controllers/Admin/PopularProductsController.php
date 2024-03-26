@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Models\Categories;
+use App\Models\SubCategory;
 use App\Models\PopularProducts;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -21,7 +22,8 @@ class PopularProductsController extends Controller
     {
         return view('admin.popular_products.create', [
             'popular_products' => new PopularProducts(),
-            'categories'  => Categories::get()
+            'categories'  => Categories::get(),
+            'sub_categories'  => SubCategory::get()
         ]);
     }
 

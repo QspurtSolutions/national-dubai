@@ -17,7 +17,7 @@ ERP solutions, social media marketing & SEO services in UAE.')
 
     <!-- Header Banner -->
     <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4"
-        data-background="img/slider/1.jpg">
+        data-background="{{url('national/img/slider/1.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 caption mt-90">
@@ -148,7 +148,7 @@ management.</p>
 
     <!-- Testiominals -->
     <section class="testimonials">
-        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg"
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="{{url('national/img/slider/2.jpg')}} "
             data-overlay-dark="3">
             <div class="container">
                 <div class="row">

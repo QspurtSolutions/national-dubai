@@ -18,13 +18,13 @@
     <div class="card-body">
         <form class="row g-3" method="POST" enctype="multipart/form-data">
             @csrf
-            @if($sub_categories->id)
+            @if($featured_categories->id)
             @method('PATCH')
             @endif
             <!-- Title Field -->
             <div class="col-md-6">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{ $sub_categories->title ?? old('title') }}">
+                <input type="text" class="form-control" id="title" name="title" value="{{ $featured_categories->title ?? old('title') }}">
             </div>
 
 
@@ -36,24 +36,43 @@
 
                     <option value="">Select category</option>
                     @foreach($categories as $category)
-                    <option value="{{ $category->id }}" {{ old('category_id', $sub_categories->category_id ?? '') == $category->id ? 'selected' : '' }}>{{ $category->heading }}</option>
+                    <option value="{{ $category->id }}" {{ old('category_id', $featured_categories->category_id ?? '') == $category->id ? 'selected' : '' }}>{{ $category->heading }}</option>
                     @endforeach
                 </select>
             </div>
             <!-- Description Field -->
+            <div class="col-md-6">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{ $featured_categories->title ?? old('title') }}">
+            </div>
+
+             <!-- Title Field -->
+             <div class="col-md-6">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="pointone" name="pointone" value="{{ $featured_categories->pointone ?? old('title') }}">
+            </div>
+
+             <!-- Title Field -->
+             <div class="col-md-6">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="pointtwo" name="pointtwo" value="{{ $featured_categories->pointtwo ?? old('title') }}">
+            </div>
+
+             <!-- Title Field -->
+             <div class="col-md-6">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="pointthree" name="pointthree" value="{{ $featured_categories->pointthree ?? old('title') }}">
+            </div>
 
             <!-- Image Field with Preview -->
             <div class="col-md-6">
                 <label for="image" class="form-label">Image</label>
                 <input type="file" class="form-control" id="image" name="image" onchange="previewImage(event)">
-                <img id="image-preview" src="{{ $sub_categories->image ?? '#' }}" alt="Image Preview" style="display: {{ isset($sub_categories->image) ? 'block' : 'none' }}; max-width: 20%; margin-top: 10px;">
+                <img id="image-preview" src="{{ $featured_categories->image ?? '#' }}" alt="Image Preview" style="display: {{ isset($featured_categories->image) ? 'block' : 'none' }}; max-width: 20%; margin-top: 10px;">
             </div>
 
-
-
-
             <div class="col-12">
-                <button type="submit" class="btn btn-light px-5">{{ $sub_categories->id ? 'Update' : 'Submit' }}</button>
+                <button type="submit" class="btn btn-light px-5">{{ $featured_categories->id ? 'Update' : 'Submit' }}</button>
             </div>
         </form>
     </div>
