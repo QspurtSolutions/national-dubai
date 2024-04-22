@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Categories;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use App\Models\SubCategoryImage;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -41,7 +42,8 @@ class SubCategoryController extends Controller
             'title' => 'required',
             'description' => 'nullable',
             'category_id' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'additional_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
       
         $iconPath = null;
@@ -49,7 +51,19 @@ class SubCategoryController extends Controller
             $iconPath = $request->file('image')->store('uploads/sub_categories', 'public');
             $data['image'] = $iconPath;
         }
-        SubCategory::create($data);
+
+        $subcategory = SubCategory::create($data);
+
+        if ($request->hasFile('additional_images')) {
+            foreach ($request->file('additional_images') as $file) {
+                $additionalImagePath = $file->store('uploads/sub_categories', 'public');
+                SubCategoryImage::create([
+                    'sub_category_id' => $subcategory->id,
+                    'image_path' => $additionalImagePath
+                ]);
+            }
+        }
+        
         return redirect()->route('admin.sub_categories.index')->with('message', 'sub_categories Updated successfully');
     }
 
@@ -123,7 +137,15 @@ class SubCategoryController extends Controller
        
         $sub_categories = SubCategory::findOrFail($id);
         $sub_categories->update($data);
-       
+        if ($request->hasFile('additional_images')) {
+            foreach ($request->file('additional_images') as $file) {
+                $additionalImagePath = $file->store('uploads/sub_categories', 'public');
+                SubCategoryImage::create([
+                    'sub_category_id' => $sub_categories->id,
+                    'image_path' => $additionalImagePath
+                ]);
+            }
+        }
         return redirect()
         ->route('admin.sub_categories.index')
         ->with('message', 'Category updated successfully.!');
@@ -139,6 +161,13 @@ class SubCategoryController extends Controller
         return redirect()
         ->route('admin.sub_categories.index')
         ->with('message', 'Category deleted successfully.!');
+    }
+    public function getAdditionalImages(SubCategory $subcategory)
+    {
+        
+        $images = SubCategoryImage::where('sub_category_id',$subcategory->id)->pluck('image_path')->toArray();
+       //dd($images);
+        return response()->json(['images' => $images]);
     }
 }
 

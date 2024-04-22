@@ -136,6 +136,13 @@
 			</a>
 		</li>
 
+		<li>
+			<a href="{{ route('admin.featured_products.index') }}">
+				<div class="parent-icon"><i class='bx bx-home-circle'></i>
+				</div>
+				<div class="menu-title">Featured Products</div>
+			</a>
+		</li>
 
 
 

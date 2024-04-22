@@ -14,8 +14,8 @@ class Categories extends Model
 
     public function subcategories()
     {
-        return $this->hasMany(SubCategory::class);
-    } 
+        return $this->hasMany(SubCategory::class, 'category_id'); // Use 'category_id' as the foreign key
+    }
     public function getImageAttribute($value)
     {
         return $value ? asset(Storage::url($value)) : null;

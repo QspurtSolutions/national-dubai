@@ -1,27 +1,28 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ContactFormController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrBlogController;
+use App\Http\Controllers\FrHomeController;
+use App\Http\Controllers\FrWorkController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FrbranchController;
 use App\Http\Controllers\FrcareerController;
 use App\Http\Controllers\FrClientController;
-use App\Http\Controllers\FrIndustriesController;
-use App\Http\Controllers\FrServiceController;
-use App\Http\Controllers\FrTechnologiesController;
-use App\Http\Controllers\FrWorkController;
-
-
-
-use App\Http\Controllers\FrmanagementController;
-use App\Http\Controllers\FrbranchController;
 use App\Http\Controllers\frGalleryController;
 
 
 
+use App\Http\Controllers\FrProductController;
+use App\Http\Controllers\FrServiceController;
+use App\Http\Controllers\ContactFormController;
 
-use App\Http\Controllers\FrHomeController;
+
+
+
+use App\Http\Controllers\FrIndustriesController;
+use App\Http\Controllers\FrmanagementController;
+use App\Http\Controllers\FrTechnologiesController;
 
 
 
@@ -57,9 +58,9 @@ Route::get('about', function () {
 });
 
 
-Route::get('products', function () {
-    return view('products');
-});
+Route::get('/all-products', [FrProductController::class,'getAllProducts'])->name('getAllProducts');
+Route::get('single-product/{id}', [FrProductController::class, 'productDetails'])->name('productDetails');
+
 
 
 Route::get('single-products', function () {
