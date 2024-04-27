@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Brand;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Mail\ContactFormMail;
@@ -12,8 +12,13 @@ class ContactFormController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        $brand = Brand::latest()->get();
+        return view('contact', compact('brand'));
     }
+
+
+
+
 
     public function storeContactForm(Request $request)
     {

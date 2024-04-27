@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\SubCategory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Categories extends Model
 {
@@ -16,6 +17,16 @@ class Categories extends Model
     {
         return $this->hasMany(SubCategory::class, 'category_id'); // Use 'category_id' as the foreign key
     }
+    
+
+
+    public function popularproducts()
+    {
+        return $this->hasMany(PopularProducts::class);
+    } 
+
+
+
     public function getImageAttribute($value)
     {
         return $value ? asset(Storage::url($value)) : null;

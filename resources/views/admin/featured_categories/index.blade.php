@@ -13,7 +13,7 @@
     </div>
     <div class="ms-auto">
         <div class="btn-group">
-            <a class="btn btn-light" href="{{ route('admin.sub_categories.create')}}">Add SubCategory</a>
+            <a class="btn btn-light" href="{{ route('admin.featured_categories.create')}}">Add Featured Categories</a>
         </div>
     </div>
 </div>

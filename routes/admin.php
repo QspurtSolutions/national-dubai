@@ -31,6 +31,8 @@ use App\Http\Controllers\Admin\FeaturedProductController;
 use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Admin\PopularProductsController;
+use App\Http\Controllers\Admin\FeaturedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -236,6 +238,35 @@ Route::prefix('featured_products')->group(function () {
     Route::patch('/{id}/edit', [FeaturedProductController::class, 'update'])->name('featured_products.update');
     Route::delete('/{id}/delete', [FeaturedProductController::class, 'destroy'])->name('featured_products.destroy');
 });   
+
+
+Route::prefix('popular_products')->group(function () {
+    Route::get('/', [PopularProductsController::class, 'index'])->name('popular_products.index');
+    Route::get('/list', [PopularProductsController::class, 'table'])->name('popular_products.list');
+    Route::get('/create', [PopularProductsController::class, 'create'])->name('popular_products.create');
+    Route::post('/create', [PopularProductsController::class, 'store'])->name('popular_products.store');
+    Route::get('/{id}/edit', [PopularProductsController::class, 'edit'])->name('popular_products.edit');
+    Route::patch('/{id}/edit', [PopularProductsController::class, 'update'])->name('popular_products.update');
+    Route::delete('/{id}/delete', [PopularProductsController::class, 'destroy'])->name('popular_products.destroy');
+});
+
+
+
+
+Route::prefix('featured_categories')->group(function () {
+    Route::get('/', [FeaturedController::class, 'index'])->name('featured_categories.index');
+    Route::get('/list', [FeaturedController::class, 'table'])->name('featured_categories.list');
+    Route::get('/create', [FeaturedController::class, 'create'])->name('featured_categories.create');
+    Route::post('/create', [FeaturedController::class, 'store'])->name('featured_categories.store');
+    Route::get('/{id}/edit', [FeaturedController::class, 'edit'])->name('featured_categories.edit');
+    Route::patch('/{id}/edit', [FeaturedController::class, 'update'])->name('featured_categories.update');
+    Route::delete('/{id}/delete', [FeaturedController::class, 'destroy'])->name('featured_categories.destroy');
+});
+
+
+
+
+       
 
         // Route::prefix('works')->group(function () {
         //     Route::get('/', [WorkController::class, 'index'])->name('works.index');

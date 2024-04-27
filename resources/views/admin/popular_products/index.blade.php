@@ -13,7 +13,7 @@
     </div>
     <div class="ms-auto">
         <div class="btn-group">
-            <a class="btn btn-light" href="{{ route('admin.sub_categories.create')}}">Add SubCategory</a>
+            <a class="btn btn-light" href="{{ route('admin.popular_products.create')}}">Add SubCategory</a>
         </div>
     </div>
 </div>
@@ -24,8 +24,9 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Parent Category</th>
                     <th>Sub category</th>
+                    <th>description</th>
+                    <th>Parent Category</th>
                     <th>Image</th>
                     <th>Action</th>
                 </tr>
@@ -73,15 +74,10 @@
         var table = $('.sub-category-datatable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('admin.sub_categories.list') }}",
+            ajax: "{{ route('admin.popular_products.list') }}",
             columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
-                        orderable: false,
-                    },
-                    {
-                        data: 'category',
-                        name: 'category',
                         orderable: false,
                     },
                 {
@@ -89,7 +85,16 @@
                         name: 'title',
                         orderable: false,
                     },
-                    
+                    {
+                        data: 'description',
+                        name: 'description',
+                        orderable: false,
+                    },
+                    {
+                        data: 'category',
+                        name: 'category',
+                        orderable: false,
+                    },
                
                 {
                     data: 'image',

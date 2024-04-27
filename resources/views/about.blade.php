@@ -17,7 +17,7 @@ ERP solutions, social media marketing & SEO services in UAE.')
 
     <!-- Header Banner -->
     <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4"
-        data-background="img/slider/1.jpg">
+        data-background="{{url('national/img/slider/1.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 caption mt-90">
@@ -27,6 +27,9 @@ ERP solutions, social media marketing & SEO services in UAE.')
             </div>
         </div>
     </div>
+
+
+
     <!-- About -->
     <section class="about section-padding">
         <div class="container">
@@ -145,7 +148,7 @@ management.</p>
 
     <!-- Testiominals -->
     <section class="testimonials">
-        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg"
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="{{url('national/img/slider/2.jpg')}} "
             data-overlay-dark="3">
             <div class="container">
                 <div class="row">
@@ -157,68 +160,29 @@ management.</p>
                                 <div class="line"></div>
                             </div>
                             <div class="owl-carousel owl-theme">
+
+
+
+                            @foreach ($testimonial as $testidata)
                                 <div class="item">
-                                    <span class="quote"><img src="img/quot.png" alt=""></span>
-                                    <p>Hotel dapibus asue metus the nec feusiate eraten miss hendreri net ve ante the
-                                        lemon sanleo nectan feugiat erat hendrerit necuis ve ante otel inilla duiman at
-                                        finibus viverra neca the sene on satien the miss drana inc fermen norttito sit
-                                        space, mus nellentesque habitan.</p>
+                                    <span class="quote"><img src="{{url('national/img/quot.png')}}  " alt=""></span>
+                                    <p>{{$testidata ->content }}</p>
                                     <div class="info">
-                                        <div class="author-img"> <img src="img/team/4.jpg" alt=""> </div>
-                                        <div class="cont">
-                                            <span>
-                                                <i class="star-rating"></i>
-                                                <i class="star-rating"></i>
-                                                <i class="star-rating"></i>
-                                                <i class="star-rating"></i>
-                                                <i class="star-rating"></i>
-                                            </span>
-                                            <h6>Emily Brown</h6>
-                                            <span>Guest review</span>
+                                        <div class="author-img"> <img src="{{$testidata ->image }}" alt=""> </div>
+                                        <div class="cont"> <span><i class="star-rating"></i><i
+                                                    class="star-rating"></i><i class="star-rating"></i><i
+                                                    class="star-rating"></i><i class="star-rating"></i></span>
+                                            <h6>{{$testidata ->name }}</h6> <span>{{$testidata ->designination }}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item"> <span class="quote"><img src="img/quot.png" alt=""></span>
-                                    <p>Hotel dapibus asue metus the nec feusiate eraten miss hendreri net ve ante the
-                                        lemon sanleo nectan feugiat erat hendrerit necuis ve ante otel inilla duiman at
-                                        finibus viverra neca the sene on satien the miss drana inc fermen norttito sit
-                                        space, mus nellentesque habitan.</p>
-                                    <div class="info">
-                                        <div class="author-img"> <img src="img/team/1.jpg" alt=""> </div>
-                                        <div class="cont">
-                                            <span>
-                                                <i class="star-rating"></i>
-                                                <i class="star-rating"></i>
-                                                <i class="star-rating"></i>
-                                                <i class="star-rating"></i>
-                                                <i class="star-rating"></i>
-                                            </span>
-                                            <h6>Nolan White</h6>
-                                            <span>Guest review</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <span class="quote"><img src="img/quot.png" alt=""></span>
-                                    <p>Hotel dapibus asue metus the nec feusiate eraten miss hendreri net ve ante the
-                                        lemon sanleo nectan feugiat erat hendrerit necuis ve ante otel inilla duiman at
-                                        finibus viverra neca the sene on satien the miss drana inc fermen norttito sit
-                                        space, mus nellentesque habitan.</p>
-                                    <div class="info">
-                                        <div class="author-img"> <img src="img/team/5.jpg" alt=""> </div>
-                                        <div class="cont">
-                                            <span>
-                                                <i class="star-rating"></i>
-                                                <i class="star-rating"></i>
-                                                <i class="star-rating"></i>
-                                                <i class="star-rating"></i>
-                                                <i class="star-rating"></i>
-                                            </span>
-                                            <h6>Olivia Martin</h6>
-                                            <span>Guest review</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            @endforeach
+
+
+
+
+
+
                             </div>
                         </div>
                     </div>

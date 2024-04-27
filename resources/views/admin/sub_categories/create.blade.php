@@ -41,10 +41,7 @@
                 </select>
             </div>
             <!-- Description Field -->
-            <div class="col-md-6">
-                <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="3">{{ $sub_categories->description ?? old('description') }}</textarea>
-            </div>
+
             <!-- Image Field with Preview -->
             <!-- <div class="col-md-6">
                 <label for="image" class="form-label">Image</label>

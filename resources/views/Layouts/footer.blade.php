@@ -1,4 +1,3 @@
-
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-top">
@@ -65,4 +64,3 @@
             </div>
         </div>
     </footer>
-    <!-- jQuery -->

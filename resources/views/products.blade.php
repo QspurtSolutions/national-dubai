@@ -67,6 +67,66 @@
                     <div class="info-wrapper">
                         <div class="more"><a href="{{ route('productDetails', $subcategory->id) }}" class="link-btn" tabindex="0">Details <i class="ti-arrow-right"></i></a></div>
                     </div>
+
+
+
+
+
+
+    
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+
+               
+
+                    <div class="rooms2 mb-90 animate-box" data-animate-effect="fadeInUp">
+                        <figure><img src="img/restaurant/1.jpg" alt="" class="img-fluid"></figure>
+                        <div class="caption">
+                            <!-- <h3>150$ <span>/ Night</span></h3> -->
+                            <h4><a href="room-details.html">Bath Tub</a></h4>
+                            <p>Spacious, bright guestrooms with tasteful furnishing, wooden floor and panoramic windows
+                                from the ceiling to the floor. Spacious, bright guestrooms with tasteful furnishing, wooden
+                                 floor and panoramic windows from the ceiling to the floor.</p>
+                           
+                            <hr class="border-2">
+                            <div class="info-wrapper">
+                                <div class="more"><a href="bath-tab.html" class="link-btn" tabindex="0">Details <i
+                                            class="ti-arrow-right"></i></a></div>
+                                <!-- <div class="butn-dark"> <a href="#" data-scroll-nav="1"><span>Book Now</span></a> </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="rooms2 mb-90 left animate-box" data-animate-effect="fadeInUp">
+                        <figure><img src="img/restaurant/2.jpg" alt="" class="img-fluid"></figure>
+                        <div class="caption">
+                            <!-- <h3>200$ <span>/ Night</span></h3> -->
+                            <h4><a href="bath-tab.html">Wash Basin</a></h4>
+                            <p>Spacious, bright guestrooms with tasteful furnishing, wooden floor and panoramic windows
+                                from the ceiling to the floor. Spacious, bright guestrooms with tasteful furnishing, wooden
+                                 floor and panoramic windows from the ceiling to the floor.</p>
+                           
+                            <hr class="border-2">
+                            <div class="info-wrapper">
+                                <div class="more"><a href="bath-tab.html" class="link-btn" tabindex="0">Details <i
+                                            class="ti-arrow-right"></i></a></div>
+                                <!-- <div class="butn-dark"> <a href="#" data-scroll-nav="1"><span>Book Now</span></a> </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+
+                 
+               
+          
+
+
                 </div>
             </div>
         </div>
@@ -153,6 +213,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
     </div>
 </section>
 <!-- Clients -->
@@ -163,6 +224,26 @@
                 <div class="owl-carousel owl-theme">
                     <div class="clients-logo">
                         <a href="#0"><img src="img/brands/1.PNG" alt=""></a>
+=======
+    </section>
+    <!-- Clients -->
+    <section class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="owl-carousel owl-theme">
+
+
+                       @foreach ($brand as $branddata)
+
+                        <div class="clients-logo">
+                            <a href="#0"><img src="{{ asset($branddata->image) }}" alt=""></a>
+                        </div>
+
+                    @endforeach
+                       
+                       
+>>>>>>> 093a4d05618455333381b22cd76a26f2cac299c9
                     </div>
                     <div class="clients-logo">
                         <a href="#0"><img src="img/brands/2.PNG" alt=""></a>
