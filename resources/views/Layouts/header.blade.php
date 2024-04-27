@@ -30,10 +30,27 @@
                     <li class="nav-item"><a class="nav-link" href="{{url('about')}}">About</a></li>
 
 
-                  
+                    @php
+        $categories = getCategories();
+        @endphp
+
+        @foreach ($categories as $category)
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">{{ $category->heading }}<i class="ti-angle-down"></i></a>
+            <ul class="dropdown-menu">
+                @php
+                $subcategories = $category->subcategories;
+                @endphp
+
+                @foreach ($subcategories as $subcategory)
+                <li><a href="{{ url('subcategory/' . $subcategory->id) }}" class="dropdown-item"><span>{{ $subcategory->title }}</span></a></li>
+                @endforeach
+            </ul>
+        </li>
+        @endforeach
 
 
-                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Kitchen<i class="ti-angle-down"></i></a>
+                    <!-- <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Kitchen<i class="ti-angle-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{url('single-products')}}" class="dropdown-item"><span>Kitchen Mixer </span></a></li>
                            
@@ -47,9 +64,9 @@
                             <li><a href="bath-tab.html" class="dropdown-item"><span>Shower Mixer</span></a></li>
                             <li><a href="bath-tab.html" class="dropdown-item"><span>Bath Spout</span></a></li>
                         </ul>  
-                    </li>
+                    </li> -->
 
-                     <li class="nav-item"><a class="nav-link" href="{{url('products')}}">All Products</a></li>
+                     <li class="nav-item"><a class="nav-link" href="{{ route('getAllProducts') }}">All Products</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{url('contact')}}">Contact</a></li>
                 </ul>
             </div>

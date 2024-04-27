@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 use App\Models\Service;
@@ -26,8 +27,9 @@ class HomeController extends Controller
     public function index()
     {
         $servicemenu = Service::latest()->get();
-        echo'<pre>';print_r($servicemenu);  exit;
-        return view ('home', compact('servicemenu'));
+        $categories = Categories::get();
+       // echo'<pre>';print_r($servicemenu);  exit;
+        return view ('home', compact('servicemenu','categories'));
     }
 }
 

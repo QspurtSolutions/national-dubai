@@ -13,69 +13,32 @@
             <div class="row">
                 <div class="col-md-12 text-left caption mt-90">
                     <h5>Products</h5>
-                    <h1>Bath Tub</h1>
+                    <h1>{{$product_details->title}}</h1>
                 </div>
             </div>
         </div>
     </div>
     <!-- Contact -->
 
-
-
-
-
-
-
     <!-- Image Gallery -->
     <section class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="section-subtitle">Bath Tub</div>
-                    <div class="section-title">Bath Tub</div>
+                    <div class="section-subtitle">{{$product_details->title}}</div>
+                    <div class="section-title">{{$product_details->title}}</div>
                 </div>
                 <!-- 3 columns -->
+                @foreach($ProductGallery as $gallery)
                 <div class="col-md-4 gallery-item">
-                    <a href="img/slider/1.jpg" title="" class="img-zoom">
+                    <a href="{{ asset(Storage::url($gallery->image_path)) }}" title="" class="img-zoom">
                         <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/1.jpg" class="img-fluid mx-auto d-block" alt="work-img"> </div>
+                            <div class="gallery-img"> <img src="{{ asset(Storage::url($gallery->image_path)) }}" class="img-fluid mx-auto d-block" alt="work-img"> </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4 gallery-item">
-                    <a href="img/slider/4.jpg" title="" class="img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/1.jpg" class="img-fluid mx-auto d-block" alt="work-img"> </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 gallery-item">
-                    <a href="img/slider/4.jpg" title="" class="img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/2.jpg" class="img-fluid mx-auto d-block" alt="work-img"> </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- 2 columns -->
-                <div class="col-md-6 gallery-item">
-                    <a href="img/slider/2.jpg" title="" class="img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/2.jpg" class="img-fluid mx-auto d-block" alt="work-img"> </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 gallery-item">
-                    <a href="img/slider/1.jpg" title="" class="img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/1.jpg" class="img-fluid mx-auto d-block" alt="work-img"> </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- 3 columns -->
-                
-
-
-                
+                @endforeach
+       
             </div>
         </div>
     </section>

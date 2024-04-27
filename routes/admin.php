@@ -2,34 +2,35 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\FormController;
+use App\Http\Controllers\Admin\LoanController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\WorkController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\ClientController;
-use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\User\UserBlogController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\IndustriesController;
-use App\Http\Controllers\Admin\TechnologiesController;
-use App\Http\Controllers\Admin\Auth\NewPasswordController;
-use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Admin\DepositController;
+use App\Http\Controllers\Admin\GalleryController;
 
 
 //New Controllers 
 
-use App\Http\Controllers\Admin\ManagementController;
-use App\Http\Controllers\Admin\BranchController;
-use App\Http\Controllers\Admin\OtherserviceController;
-use App\Http\Controllers\Admin\LoanController;
-use App\Http\Controllers\Admin\DepositController;
-use App\Http\Controllers\Admin\GalleryController;
-use App\Http\Controllers\Admin\FormController;
-use App\Http\Controllers\Admin\NewsController;
-use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\BrandController;
-use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\User\UserBlogController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\IndustriesController;
+use App\Http\Controllers\Admin\ManagementController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\OtherserviceController;
+use App\Http\Controllers\Admin\TechnologiesController;
+use App\Http\Controllers\Admin\FeaturedProductController;
+use App\Http\Controllers\Admin\Auth\NewPasswordController;
+use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\PopularProductsController;
 use App\Http\Controllers\Admin\FeaturedController;
 
@@ -225,8 +226,18 @@ Route::prefix('sub_categories')->group(function () {
     Route::get('/{id}/edit', [SubCategoryController::class, 'edit'])->name('sub_categories.edit');
     Route::patch('/{id}/edit', [SubCategoryController::class, 'update'])->name('sub_categories.update');
     Route::delete('/{id}/delete', [SubCategoryController::class, 'destroy'])->name('sub_categories.destroy');
+    Route::get('/{subcategory}/images', [SubCategoryController::class, 'getAdditionalImages'])->name('sub_categories.images');
 });
 
+Route::prefix('featured_products')->group(function () {
+    Route::get('/', [FeaturedProductController::class, 'index'])->name('featured_products.index');
+    Route::get('/list', [FeaturedProductController::class, 'table'])->name('featured_products.list');
+    Route::get('/create', [FeaturedProductController::class, 'create'])->name('featured_products.create');
+    Route::post('/create', [FeaturedProductController::class, 'store'])->name('featured_products.store');
+    Route::get('/{id}/edit', [FeaturedProductController::class, 'edit'])->name('featured_products.edit');
+    Route::patch('/{id}/edit', [FeaturedProductController::class, 'update'])->name('featured_products.update');
+    Route::delete('/{id}/delete', [FeaturedProductController::class, 'destroy'])->name('featured_products.destroy');
+});   
 
 
 Route::prefix('popular_products')->group(function () {

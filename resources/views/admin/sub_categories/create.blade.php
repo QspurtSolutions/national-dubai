@@ -43,11 +43,25 @@
             <!-- Description Field -->
 
             <!-- Image Field with Preview -->
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <label for="image" class="form-label">Image</label>
                 <input type="file" class="form-control" id="image" name="image" onchange="previewImage(event)">
                 <img id="image-preview" src="{{ $sub_categories->image ?? '#' }}" alt="Image Preview" style="display: {{ isset($sub_categories->image) ? 'block' : 'none' }}; max-width: 20%; margin-top: 10px;">
-            </div>
+            </div> -->
+           
+          <!-- Primary Image Field with Preview -->
+<div class="form-group">
+    <label for="image">Primary Image:</label>
+    <input type="file" class="form-control" id="image" name="image" accept="image/*" onchange="previewImage(event)">
+    <img id="image-preview" src="{{ $sub_categories->image ?? '#' }}" alt="Image Preview" style="display: {{ isset($sub_categories->image) ? 'block' : 'none' }}; max-width: 20%; margin-top: 10px;">
+</div>
+
+<!-- Additional Images Field with Preview -->
+<div class="form-group">
+    <label for="additional_images">Additional Images:</label>
+    <input type="file" class="form-control" id="additional_images" name="additional_images[]" multiple accept="image/*" onchange="previewImages(event)">
+    <div id="additional-images-preview"></div>
+</div>
 
 
 
@@ -73,16 +87,119 @@
 
 
 @push('script')
-<script>
-    function previewImage(event) {
-        var reader = new FileReader();
-        reader.onload = function() {
-            var preview = document.getElementById('image-preview');
-            preview.src = reader.result;
-            preview.style.display = 'block';
-        };
-        reader.readAsDataURL(event.target.files[0]);
+<!-- <script>
+   function previewImage(event) {
+        var preview = document.getElementById('image-preview');
+        preview.style.display = 'block';
+        preview.src = URL.createObjectURL(event.target.files[0]);
     }
-</script>
 
+    // Function to preview additional images
+    function previewImages(event) {
+        var files = event.target.files;
+        var previewContainer = document.getElementById('additional-images-preview');
+        previewContainer.innerHTML = '';
+
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.maxWidth = '20%';
+                img.style.marginTop = '10px';
+                previewContainer.appendChild(img);
+            }
+
+            reader.readAsDataURL(file);
+        }
+    }
+</script> -->
+
+<script>
+      function previewImage(event) {
+        var preview = document.getElementById('image-preview');
+        preview.style.display = 'block';
+        preview.src = URL.createObjectURL(event.target.files[0]);
+    }
+    // Function to preview additional images
+    function previewImages(event) {
+        var files = event.target.files;
+        var previewContainer = document.getElementById('additional-images-preview');
+        previewContainer.innerHTML = '';
+
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.maxWidth = '20%';
+                img.style.marginTop = '10px';
+                previewContainer.appendChild(img);
+            }
+
+            reader.readAsDataURL(file);
+        }
+    }
+
+    // Function to display already uploaded additional images on edit
+// Function to display additional images already associated with the sub-category
+function displayExistingImages(images) {
+    var previewContainer = document.getElementById('additional-images-preview');
+    previewContainer.innerHTML = '';
+
+    images.forEach(function(image) {
+        var img = document.createElement('img');
+        //img.src = image.image_path;
+        img.src = '{{ asset('storage/') }}' + '/' + image.image_path; 
+        img.style.maxWidth = '20%';
+        img.style.marginTop = '10px';
+        previewContainer.appendChild(img);
+    });
+}
+
+// Function to preview additional images
+function previewImages(event) {
+    var files = event.target.files;
+    var previewContainer = document.getElementById('additional-images-preview');
+    previewContainer.innerHTML = '';
+
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            var img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.maxWidth = '20%';
+            img.style.marginTop = '10px';
+            previewContainer.appendChild(img);
+        }
+
+        reader.readAsDataURL(file);
+    }
+}
+
+// Check if sub_categories has additional_images
+var additionalImages = {!! json_encode($sub_categories->images) !!};
+if (additionalImages && additionalImages.length > 0) {
+    displayExistingImages(additionalImages);
+}
+
+var subcategoryId = {!! json_encode($sub_categories->id) !!};
+if (subcategoryId) {
+    fetch("/admin/sub_categories/" + subcategoryId + "/images")
+        .then(response => response.json())
+        .then(data => {
+            if (data.images && data.images.length > 0) {
+                console.log(data.images);
+                displayUploadedImages(data.images);
+            }
+        })
+        .catch(error => console.error('Error fetching images:', error));
+}
+</script>
 @endpush
