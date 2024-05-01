@@ -61,9 +61,9 @@ Route::get('/contact', [ContactFormController::class, 'contact']);
 
 
 
-Route::get('about', function () {
-    return view('about');
-});
+// Route::get('about', function () {
+//     return view('about');
+// });
 
 
 Route::get('/all-products', [FrProductController::class,'getAllProducts'])->name('getAllProducts');
