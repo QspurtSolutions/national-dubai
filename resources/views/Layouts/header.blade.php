@@ -43,7 +43,7 @@
                 @endphp
 
                 @foreach ($subcategories as $subcategory)
-                <li><a href="{{ url('subcategory/' . $subcategory->id) }}" class="dropdown-item"><span>{{ $subcategory->title }}</span></a></li>
+                <li><a href="{{ route('productDetails', $subcategory->id) }}" class="dropdown-item"><span>{{ $subcategory->title }}</span></a></li>
                 @endforeach
             </ul>
         </li>

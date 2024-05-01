@@ -69,14 +69,14 @@ Route::get('about', function () {
 Route::get('/all-products', [FrProductController::class,'getAllProducts'])->name('getAllProducts');
 Route::get('single-product/{id}', [FrProductController::class, 'productDetails'])->name('productDetails');
 
-Route::get('products', function () {
-    return view('products');
-});
+// Route::get('products', function () {
+//     return view('products');
+// });
 
 
-Route::get('single-products', function () {
-    return view('single-products');
-});
+// Route::get('single-products', function () {
+//     return view('single-products');
+// });
 
 
 
