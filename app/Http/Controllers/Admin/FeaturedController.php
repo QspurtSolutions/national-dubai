@@ -32,9 +32,9 @@ class FeaturedController extends Controller
             'title' => 'required',
             'category_id' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'pointone'=> 'requires',
-            'pointtwo'=> 'requires',
-            'pointthree'=> 'requires'  	 	
+            'pointone'=> 'required',
+            'pointtwo'=> 'required',
+            'pointthree'=> 'required'  	 	
         ]);
         $iconPath = null;
         if ($request->hasFile('image')) {
