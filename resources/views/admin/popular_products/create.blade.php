@@ -46,9 +46,9 @@
                 <label for="category" class="form-label">Category</label>
                 <select class="form-select" id="category_id" name="category_id">
 
-                    <option value="">Select category</option>
-                    @foreach($categories as $category)
-                    <option value="{{ $category->id }}" {{ old('subcategory_id', $popular_products->subcategory_id ?? '') == $subcategory->id ? 'selected' : '' }}>{{ $subcategory->heading }}</option>
+                    <option value="">Select subCategory</option>
+                    @foreach($sub_categories as $subcategory)
+                    <option value="{{ $subcategory->id }}" {{ old('subcategory_id', $popular_products->subcategory_id ?? '') == $subcategory->id ? 'selected' : '' }}>{{ $subcategory->title }}</option>
                     @endforeach
                 </select>
             </div>

@@ -226,7 +226,7 @@ management.</p>
         <div class="row">
             <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
                 <div class="img left">
-                    <a href="restaurant.html"><img src="{{ $populardata->image }}" alt=""></a>
+                    <a href=""><img src="{{ $populardata->image }}" alt=""></a>
                 </div>
             </div>
             <div class="col-md-6 p-0 bg-darkblack valign animate-box" data-animate-effect="fadeInRight">
@@ -237,7 +237,7 @@ management.</p>
                         </div>
                         <h4>{{ $populardata->title }}</h4>
                         <p>{{ $populardata->description }}</p>
-                        <div class="butn-dark"> <a href="bath-tab.html"><span>View More</span></a> </div>
+                        <div class="butn-dark"> <a href=""><span>View More</span></a> </div>
                     </div>
                 </div>
             </div>

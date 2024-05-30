@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categories;
-use Illuminate\Http\Request;
-
+use App\Models\Brand;
 use App\Models\Service;
+
+use App\Models\Categories;
 use App\Models\SubCategory;
+use Illuminate\Http\Request;
 use App\Models\SubCategoryImage;
 
 class FrProductController extends Controller
@@ -26,7 +27,8 @@ class FrProductController extends Controller
     {
         $product_details = SubCategory::find($id)->first();
         $ProductGallery = SubCategoryImage::where('sub_category_id',$id)->get();
-        return view ('single-products', compact('product_details','ProductGallery'));
+        $brand = Brand::latest()->get();
+        return view ('single-products', compact('product_details','ProductGallery','brand'));
     }
 }
 

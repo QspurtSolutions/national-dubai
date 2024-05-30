@@ -7,13 +7,13 @@
             <ol class="breadcrumb mb-0 p-0">
                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Sub Category</li>
+                <li class="breadcrumb-item active" aria-current="page">Popular products</li>
             </ol>
         </nav>
     </div>
     <div class="ms-auto">
         <div class="btn-group">
-            <a class="btn btn-light" href="{{ route('admin.popular_products.create')}}">Add SubCategory</a>
+            <a class="btn btn-light" href="{{ route('admin.popular_products.create')}}">Add Popular products</a>
         </div>
     </div>
 </div>
@@ -24,9 +24,9 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Sub category</th>
+                    <th>Title</th>
                     <th>description</th>
-                    <th>Parent Category</th>
+                    <th>Category</th>
                     <th>Image</th>
                     <th>Action</th>
                 </tr>

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 use App\Models\Categories;
 use App\Models\SubCategory;
+use Illuminate\Http\Request;
 use App\Models\PopularProducts;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class PopularProductsController extends Controller
 {
@@ -36,6 +37,7 @@ class PopularProductsController extends Controller
             'title' => 'required',
             'description' => 'nullable',
             'category_id' => 'required',
+            'subcategory_id' => 'nullable',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
       
@@ -107,6 +109,7 @@ class PopularProductsController extends Controller
             'title' => 'required',
             'description' => 'nullable',
             'category_id' => 'required',
+            'subcategory_id' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         $iconPath = null;

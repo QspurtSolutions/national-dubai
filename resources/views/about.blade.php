@@ -84,19 +84,21 @@ management.</p>
                 </div>
                 <div class="col-md-8">
                     <div class="owl-carousel owl-theme">
+                        @foreach($featuredCategories as $featured)
                         <div class="pricing-card">
-                            <img src="img/restaurant/1.jpg" alt="">
+                            <img src="{{$featured->image}}" alt="">
                             <div class="desc">
-                                <div class="name">Bath Tub</div>
+                                <div class="name">{{$featured->title}}</div>
                                 
                                 <ul class="list-unstyled list">
-                                    <li><i class="ti-check"></i> Hotel ut nisan the duru</li>
-                                    <li><i class="ti-check"></i> Orci miss natoque vasa ince</li>
-                                    <li><i class="ti-close unavailable"></i>Clean sorem ipsum morbin</li>
+                                    <li><i class="ti-check"></i>{{$featured->pointone}}</li>
+                                    <li><i class="ti-check"></i> {{$featured->pointtwo}}</li>
+                                    <li><i class="ti-close unavailable"></i>{{$featured->pointthree}}</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="pricing-card">
+                        @endforeach
+                        <!-- <div class="pricing-card">
                             <img src="img/restaurant/2.jpg" alt="">
                             <div class="desc">
                                 <div class="name">Wash Basin</div>
@@ -107,8 +109,8 @@ management.</p>
                                     <li><i class="ti-close unavailable"></i>Clean sorem ipsum morbin</li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="pricing-card">
+                        </div> -->
+                        <!-- <div class="pricing-card">
                             <img src="img/restaurant/3.jpg" alt="">
                             <div class="desc">
                                 <div class="name">Plumbing</div>
@@ -119,7 +121,7 @@ management.</p>
                                     <li><i class="ti-close unavailable"></i>Clean sorem ipsum morbin</li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- <div class="pricing-card">
                             <img src="img/restaurant/4.jpg" alt="">
                             <div class="desc">
